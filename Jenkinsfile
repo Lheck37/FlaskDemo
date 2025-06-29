@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		VERSION = '3.0.1'
-		DOCKERHUB_CREDENTIALS = credentials('docker-heckboy37-credentials')
+		
 	}
 	stages {
 		stage('Build') {
@@ -35,11 +35,11 @@ pipeline {
                 }
 
 		stage('Dockerhub Login') {
+    steps {
+        sh 'echo dckr_pat_wK8RGozdHp0h3bAYiGhknfCgaEo | docker login -u heckboy37 --password-stdin'
+    }
+}
 
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
 
 		stage('Push Image to Dockerhub') {
 
