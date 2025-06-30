@@ -36,7 +36,7 @@ pipeline {
 
 		stage('Dockerhub Login') {
     steps {
-        sh 'echo dckr_pat_wK8RGozdHp0h3bAYiGhknfCgaEo | docker login -u heckboy37 --password-stdin'
+        sh dckr_pat_ejg53lcw3cNDz4qAjaGwJTvplFg | docker login -u heckboy37 --password-stdin'
     }
 }
 
